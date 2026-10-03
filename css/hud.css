@@ -1,0 +1,19 @@
+#crosshair{position:fixed;left:50%;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;pointer-events:none;z-index:5}
+#crosshair::before,#crosshair::after{content:'';position:absolute;background:#fff;opacity:.8;box-shadow:0 0 2px #000}
+#crosshair::before{left:8px;top:0;width:2px;height:18px}
+#crosshair::after{top:8px;left:0;height:2px;width:18px}
+#hotbar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;gap:5px;padding:5px;background:rgba(0,0,0,.45);border-radius:10px;z-index:5;pointer-events:auto;max-width:96vw;overflow-x:auto}
+.slot{width:44px;height:44px;flex:0 0 auto;border:2px solid rgba(255,255,255,.25);border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.12s;position:relative;overflow:hidden;background:rgba(0,0,0,.25)}
+.slot.active{border-color:#fff;transform:scale(1.08)}
+.slot canvas{width:100%;height:100%;image-rendering:pixelated}
+.slot .count{position:absolute;right:2px;bottom:1px;font-size:10px;font-weight:bold;color:#fff;text-shadow:1px 1px 0 #000,-1px -1px 0 #000}
+.slot .durability{position:absolute;left:2px;bottom:1px;height:3px;border-radius:1px}
+#info{position:fixed;top:calc(8px + env(safe-area-inset-top));left:calc(8px + env(safe-area-inset-left));color:#fff;font-size:11px;text-shadow:0 1px 3px #000;line-height:1.7;pointer-events:none;z-index:5}
+#biome-label{position:fixed;bottom:calc(70px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:rgba(0,0,0,.6);color:#ffd700;padding:4px 12px;border-radius:6px;font-size:12px;z-index:5;pointer-events:none;transition:opacity .5s}
+#health-bar{position:fixed;bottom:calc(70px + env(safe-area-inset-bottom));left:calc(12px + env(safe-area-inset-left));display:flex;gap:2px;z-index:5;pointer-events:none}
+.heart{width:18px;height:18px;image-rendering:pixelated}
+#damage-overlay{position:fixed;inset:0;background:rgba(180,0,0,.35);pointer-events:none;opacity:0;transition:opacity .3s;z-index:4}
+#heal-overlay{position:fixed;inset:0;background:rgba(80,200,80,.25);pointer-events:none;opacity:0;transition:opacity .4s;z-index:4}
+#mine-progress{position:fixed;left:50%;top:calc(50% + 30px);transform:translateX(-50%);width:120px;height:8px;background:rgba(0,0,0,.5);border:2px solid rgba(255,255,255,.4);border-radius:4px;display:none;z-index:6;overflow:hidden}
+#mine-progress.open{display:block}
+#mine-progress-bar{height:100%;background:linear-gradient(90deg,#8f8f93,#c8c8ce);width:0%}
