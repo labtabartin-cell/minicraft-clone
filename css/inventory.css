@@ -1,0 +1,36 @@
+#inv-modal,#furnace-modal{position:fixed;inset:0;background:rgba(0,0,0,.65);display:none;align-items:center;justify-content:center;z-index:15;padding:12px}
+#inv-modal.open,#furnace-modal.open{display:flex}
+.inv-panel{background:rgba(30,30,40,.96);border:2px solid #555;border-radius:10px;padding:14px;max-width:520px;width:100%;max-height:92vh;overflow-y:auto;color:#eee;box-shadow:0 10px 40px rgba(0,0,0,.6);display:flex;flex-direction:column;gap:12px}
+.inv-title{font-size:14px;font-weight:bold;text-align:center;letter-spacing:1px;color:#ffd700;padding-bottom:6px;border-bottom:1px solid #444}
+.inv-tabs{display:flex;gap:4px;flex-wrap:wrap;justify-content:center;padding:6px;background:rgba(0,0,0,.3);border-radius:6px}
+.inv-tab{padding:6px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:4px;color:#eee;font-size:11px;cursor:pointer;font-family:inherit}
+.inv-tab.active{background:rgba(80,140,220,.6);border-color:#8cf}
+.inv-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.grid-label{font-size:10px;color:#aaa;text-align:center;margin-bottom:4px}
+.craft-grid{display:grid;gap:4px;background:rgba(0,0,0,.4);padding:5px;border-radius:6px;border:1px solid #444}
+.craft-grid.g2{grid-template-columns:repeat(2,48px)}
+.craft-grid.g3{grid-template-columns:repeat(3,48px)}
+.craft-slot{width:48px;height:48px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:4px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative;overflow:hidden}
+.craft-slot canvas{width:100%;height:100%;image-rendering:pixelated}
+.craft-arrow{font-size:24px;color:#ffd700;display:flex;align-items:center;justify-content:center;padding:0 6px}
+.craft-result{width:56px;height:56px;background:rgba(255,215,0,.1);border:2px solid #ffd700;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;position:relative}
+.craft-result.can-craft{animation:pulse 1s infinite alternate}
+@keyframes pulse{from{box-shadow:0 0 8px rgba(255,215,0,.3)}to{box-shadow:0 0 20px rgba(255,215,0,.7)}}
+.craft-result canvas{width:100%;height:100%;image-rendering:pixelated}
+.craft-result .count{position:absolute;right:2px;bottom:1px;font-size:10px;font-weight:bold;color:#fff;text-shadow:1px 1px 0 #000}
+.inv-grid{display:grid;grid-template-columns:repeat(9,44px);gap:3px;background:rgba(0,0,0,.35);padding:5px;border-radius:6px;border:1px solid #444;justify-content:center}
+.inv-slot{width:44px;height:44px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:4px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;cursor:pointer}
+.inv-slot:hover{background:rgba(255,255,255,.12)}
+.inv-slot canvas{width:100%;height:100%;image-rendering:pixelated}
+.inv-slot .count{position:absolute;right:2px;bottom:1px;font-size:10px;font-weight:bold;color:#fff;text-shadow:1px 1px 0 #000}
+.inv-slot.food{border-color:rgba(255,180,80,.4)}
+.inv-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.inv-btn{padding:8px 18px;background:rgba(80,120,180,.6);border:1px solid #6688cc;border-radius:6px;color:#fff;font-size:12px;cursor:pointer;font-family:inherit}
+.inv-btn.danger{background:rgba(180,80,80,.6);border-color:#cc6666}
+.furnace-panel{background:rgba(30,30,40,.96);border:2px solid #555;border-radius:10px;padding:18px;color:#eee;display:flex;flex-direction:column;gap:14px;align-items:center}
+.furnace-row{display:flex;gap:16px;align-items:center}
+.furnace-slot{width:56px;height:56px;background:rgba(255,255,255,.08);border:2px solid rgba(255,255,255,.2);border-radius:6px;display:flex;align-items:center;justify-content:center;position:relative;cursor:pointer;overflow:hidden}
+.furnace-slot canvas{width:100%;height:100%;image-rendering:pixelated}
+.furnace-slot .count{position:absolute;right:3px;bottom:2px;font-size:11px;font-weight:bold;color:#fff;text-shadow:1px 1px 0 #000}
+.furnace-progress{width:100px;height:10px;background:rgba(0,0,0,.5);border:2px solid rgba(255,255,255,.3);border-radius:5px;overflow:hidden}
+.furnace-progress-bar{height:100%;background:linear-gradient(90deg,#ff6600,#ffaa00);width:0%}
