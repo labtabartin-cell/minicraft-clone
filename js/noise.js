@@ -1,0 +1,8 @@
+export function hash(s){let n=Math.imul(s,374761393)^0x5bd1e995;n=Math.imul(n^(n>>>13),1274126177);return((n>>>0)/4294967296);}
+export function hash2i(x,y,s){let n=Math.imul(x|0,374761393)^Math.imul(y|0,668265263)^Math.imul(s|0,1013904223);n=Math.imul(n^(n>>>13),1274126177);n^=n>>>16;return(n>>>0)/4294967296;}
+function vnoise(x,y,s){const xi=Math.floor(x),yi=Math.floor(y),xf=x-xi,yf=y-yi;const u=xf*xf*(3-2*xf),v=yf*yf*(3-2*yf);const a=hash2i(xi,yi,s),b=hash2i(xi+1,yi,s),c=hash2i(xi,yi+1,s),d=hash2i(xi+1,yi+1,s);return(a*(1-u)+b*u)*(1-v)+(c*(1-u)+d*u)*v;}
+export function fbm(x,y,s,oct=4){let a=0,amp=1,f=1,n=0;for(let i=0;i<oct;i++){a+=amp*vnoise(x*f,y*f,s+i*17);n+=amp;amp*=.5;f*=2;}return a/n;}
+export function hash3i(x,y,z,s){let n=Math.imul(x|0,374761393)^Math.imul(y|0,668265263)^Math.imul(z|0,2147483647)^Math.imul(s|0,1013904223);n=Math.imul(n^(n>>>13),1274126177);n^=n>>>16;return(n>>>0)/4294967296;}
+function vnoise3(x,y,z,s){const xi=Math.floor(x),yi=Math.floor(y),zi=Math.floor(z);const xf=x-xi,yf=y-yi,zf=z-zi;const u=xf*xf*(3-2*xf),v=yf*yf*(3-2*yf),w=zf*zf*(3-2*zf);const c000=hash3i(xi,yi,zi,s),c100=hash3i(xi+1,yi,zi,s),c010=hash3i(xi,yi+1,zi,s),c110=hash3i(xi+1,yi+1,zi,s),c001=hash3i(xi,yi,zi+1,s),c101=hash3i(xi+1,yi,zi+1,s),c011=hash3i(xi,yi+1,zi+1,s),c111=hash3i(xi+1,yi+1,zi+1,s);const c00=c000*(1-u)+c100*u,c01=c001*(1-u)+c101*u,c10=c010*(1-u)+c110*u,c11=c011*(1-u)+c111*u;return(c00*(1-v)+c10*v)*(1-w)+(c01*(1-v)+c11*v)*w;}
+export function fbm3(x,y,z,s,oct=2){let a=0,amp=1,f=1,n=0;for(let i=0;i<oct;i++){a+=amp*vnoise3(x*f,y*f,z*f,s+i*17);n+=amp;amp*=.5;f*=2;}return a/n;}
+export function smoothstep(e0,e1,x){const t=Math.max(0,Math.min(1,(x-e0)/(e1-e0)));return t*t*(3-2*t);}
