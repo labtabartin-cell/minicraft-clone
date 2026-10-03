@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>Minecraft Clone</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/hud.css">
+<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href="css/mobile.css">
+<link rel="stylesheet" href="css/inventory.css">
+</head>
+<body>
+<div id="loading">⛏️ در حال آماده‌سازی...</div>
+<div id="menu">
+<h1>MINECRAFT</h1>
+<div class="subtitle">⛏️ CLONE EDITION</div>
+<button class="menu-btn continue" id="menu-continue">▶️ ادامه بازی</button>
+<button class="menu-btn survival" id="menu-survival">⚔️ دنیای جدید — بقا</button>
+<button class="menu-btn creative" id="menu-creative">🎨 دنیای جدید — خلاقیت</button>
+<div class="menu-info"><b>⚔️ بقا:</b> بدون آیتم، قلب، بدون پرواز، دشمنان خطرناک<br><b>🎨 خلاقیت:</b> تمام آیتم‌ها، پرواز، دشمنان بی‌خطر</div>
+</div>
+<div id="damage-overlay"></div><div id="heal-overlay"></div><div id="crosshair"></div><div id="info"></div><div id="health-bar"></div><div id="hotbar"></div><div id="biome-label"></div>
+<div id="mine-progress"><div id="mine-progress-bar"></div></div><div id="notify"></div><div id="rotate-hint">🔄 گوشی را افقی بگیرید</div>
+<div id="death-screen"><h1>💀 تو مردی!</h1><button id="respawn-btn">🔄 دوباره زنده شو</button></div>
+<div id="joy"><div id="joy-knob"></div></div>
+<button class="mc-btn small" id="btn-fly">✈</button><button class="mc-btn small" id="btn-place">▣</button><button class="mc-btn small" id="btn-break">⛏</button><button class="mc-btn small" id="btn-jump">▲</button>
+<button class="mc-btn small" id="btn-down" style="display:none">▼</button><button class="mc-btn small" id="btn-inv">🎒</button><button class="mc-btn small" id="btn-eat">🍖</button>
+<div id="btn-settings">⚙</div><div id="settings-panel">
+<label>حساسیت: <input type="range" id="set-sens" min="1" max="10" value="5"></label><label>اندازه دکمه: <input type="range" id="set-btn" min="1" max="10" value="5"></label>
+<label>لرزش: <input type="checkbox" id="set-vib" checked></label><label>صدا: <input type="checkbox" id="set-snd" checked></label>
+<button id="btn-save">💾 ذخیره دنیا</button><button id="btn-menu" class="danger">🏠 بازگشت به منو</button><button id="close-settings">بستن</button>
+</div>
+<div id="inv-modal"><div class="inv-panel"><div class="inv-title">🎒 اینونتوری</div><div class="inv-tabs" id="inv-tabs" style="display:none"></div>
+<div><div class="grid-label">کرفتینگ ۲×۲</div><div class="inv-row"><div class="craft-grid g2" id="craft2-grid"></div><div class="craft-arrow">→</div><div class="craft-result" id="craft2-result"></div></div></div>
+<div><div class="grid-label">کرفتینگ ۳×۳</div><div class="inv-row"><div class="craft-grid g3" id="craft3-grid"></div><div class="craft-arrow">→</div><div class="craft-result" id="craft3-result"></div></div></div>
+<div><div class="grid-label" id="inv-label">اینونتوری</div><div class="inv-grid" id="inv-grid"></div></div><div class="inv-actions"><button class="inv-btn" id="inv-clear-craft">پاک</button><button class="inv-btn danger" id="inv-close">بستن</button></div></div></div>
+<div id="furnace-modal"><div class="furnace-panel"><div class="inv-title">🔥 کوره</div><div class="furnace-row">
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div class="grid-label">ذوب‌شونده</div><div class="furnace-slot" id="furnace-input"></div></div>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div class="grid-label">سوخت</div><div class="furnace-slot" id="furnace-fuel"></div></div></div>
+<div class="furnace-row"><div class="furnace-progress"><div class="furnace-progress-bar" id="furnace-progress"></div></div><span style="font-size:20px">→</span>
+<div style="display:flex;flex-direction:column;gap:6px;align-items:center"><div class="grid-label">خروجی</div><div class="furnace-slot" id="furnace-output"></div></div></div>
+<div class="inv-actions"><button class="inv-btn danger" id="furnace-close">بستن</button></div></div></div>
+<div id="overlay" style="display:none"><h1>⛏️ MINECRAFT</h1><p id="overlay-help"></p><p style="opacity:.55;font-size:11px">برای شروع ضربه بزن</p></div>
+<script type="importmap">{ "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js" } }</script><script type="module" src="js/main.js"></script>
+</body></html>
